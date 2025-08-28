@@ -14,6 +14,7 @@ public class CharacterControllerScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
         rb.freezeRotation = true;
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
     }
 
     void Update()
@@ -31,8 +32,9 @@ public class CharacterControllerScript : MonoBehaviour
     {
         if (dragging)
         {
-            // Move the Rigidbody smoothly while respecting collisions
-            rb.MovePosition(targetPos);
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePos.z = 0f;
+            rb.MovePosition(mousePos);
         }
     }
 
