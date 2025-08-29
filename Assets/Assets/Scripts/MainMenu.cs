@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] CanvasGroup _mainMenuButtonsCG;
     [SerializeField] CanvasGroup _quitConfirmationCG;
+    [SerializeField] CanvasGroup _openSettingsMenuCG;
 
 
     public void PlayGame()
@@ -36,5 +37,17 @@ public class MainMenu : MonoBehaviour
     {
         CanvasGroupSetState(_mainMenuButtonsCG, true);
         CanvasGroupSetState(_quitConfirmationCG, false);
+    }
+
+    public void OpenSettingsMenu()
+    {
+        CanvasGroupSetState(_mainMenuButtonsCG, false);
+        CanvasGroupSetState(_openSettingsMenuCG, true);
+    }
+
+    public void CloseSettingsMenu()
+    {
+        CanvasGroupSetState(_mainMenuButtonsCG, true);
+        CanvasGroupSetState(_openSettingsMenuCG, false);
     }
 }
