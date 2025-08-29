@@ -36,7 +36,7 @@ public class AudioManager : MonoBehaviour
         _musicGroup = _mixer.FindMatchingGroups(MUSIC_GROUP_NAME)[0];
         _musicGroup = _mixer.FindMatchingGroups(SFX_GROUP_NAME)[0];
 
-        PlayAudio(_music, SoundType.Music, 1.0f, true);
+        PlayAudio(_music, SoundType.Music, 0.4f, true);
     }
 
     public void ChangeMasterVolume(float volume)
