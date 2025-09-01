@@ -21,4 +21,12 @@ public class GameOverScreen : MonoBehaviour
         CanvasGroupSetState(_gameOverCG, false);
         AudioManager.Instance.PlayMusic();
     }
+
+    public void MainMenuButton()
+    {
+        Time.timeScale = 1f;
+        CanvasGroupSetState(_gameOverCG, false);
+        SceneManager.LoadScene(0);
+        AudioManager.Instance.PlayMusic();
+    }
 }
