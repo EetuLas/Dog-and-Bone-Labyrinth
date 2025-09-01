@@ -8,11 +8,6 @@ public class Walls : MonoBehaviour
 {
     [SerializeField] CanvasGroup _gameOverCG;
 
-    void Start()
-    {
-        CanvasGroupSetState(_gameOverCG, false);
-    }
-
     void CanvasGroupSetState(CanvasGroup canvasGroup, bool state)
     {
         canvasGroup.alpha = state ? 1.0f : 0.0f;

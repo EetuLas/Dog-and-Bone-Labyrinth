@@ -5,8 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour
 {
+    [SerializeField] CanvasGroup _gameOverCG;
+
+    void CanvasGroupSetState(CanvasGroup canvasGroup, bool state)
+    {
+        canvasGroup.alpha = state ? 1.0f : 0.0f;
+        canvasGroup.interactable = state;
+        canvasGroup.blocksRaycasts = state;
+    }
+
     public void RestartButton()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        CanvasGroupSetState(_gameOverCG, false);
     }
 }
