@@ -4109,6 +4109,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4715413753676201677, guid: c4ad1cd0313f0ee4289c0321cdffe1d0, type: 3}
+      propertyPath: _winSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 6e7271e41da9d104da40e4433eb39ff0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

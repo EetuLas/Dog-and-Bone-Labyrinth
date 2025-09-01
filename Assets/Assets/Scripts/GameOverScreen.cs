@@ -19,5 +19,6 @@ public class GameOverScreen : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         CanvasGroupSetState(_gameOverCG, false);
+        AudioManager.Instance.PlayMusic();
     }
 }

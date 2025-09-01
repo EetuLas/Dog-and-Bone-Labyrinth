@@ -19,6 +19,7 @@ public class Bone : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            AudioManager.Instance.PlayWinSound();
             CanvasGroupSetState(_winScreenCG, true);
             Time.timeScale = 0f;
         }

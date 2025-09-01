@@ -19,6 +19,7 @@ public class Walls : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            AudioManager.Instance.StopMusic();
             CanvasGroupSetState(_gameOverCG, true);
             Time.timeScale = 0f;
         }

@@ -6,8 +6,10 @@ public class AudioManager : MonoBehaviour
 {
     [SerializeField] AudioMixer _mixer;
     [SerializeField] AudioClip _music;
+    [SerializeField] AudioClip _winSound;
     AudioMixerGroup _musicGroup;
     AudioMixerGroup _sfxGroup;
+    private AudioSource _currentMusic;
 
     const string MUSIC_GROUP_NAME = "Music";
     const string SFX_GROUP_NAME = "SFX";
@@ -70,7 +72,7 @@ public class AudioManager : MonoBehaviour
     {
         GameObject newAudioSource = new(audioClip.name + " Source");
         newAudioSource.transform.parent = transform;
-        
+
         AudioSource audioSource = newAudioSource.AddComponent<AudioSource>();
         audioSource.clip = audioClip;
         audioSource.volume = volume;
@@ -84,6 +86,7 @@ public class AudioManager : MonoBehaviour
                 break;
             case SoundType.Music:
                 audioSource.outputAudioMixerGroup = Instance._musicGroup;
+                _currentMusic = audioSource;
                 break;
             default:
                 break;
@@ -95,5 +98,28 @@ public class AudioManager : MonoBehaviour
         {
             Destroy(audioSource.gameObject, audioClip.length);
         }
+    }
+
+    public void StopMusic()
+    {
+        if (_currentMusic != null)
+        {
+            _currentMusic.Stop();
+            Destroy(_currentMusic.gameObject);
+            _currentMusic = null;
+        }
+    }
+
+    public void PlayMusic()
+    {
+        if (_currentMusic == null)
+        {
+            PlayAudio(_music, SoundType.Music, 1f, true);
+        }
+    }
+    
+    public void PlayWinSound()
+    {
+        PlayAudio(_winSound, SoundType.SFX, 1f, false);
     }
 }
