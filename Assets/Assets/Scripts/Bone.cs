@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Walls : MonoBehaviour
+public class Bone : MonoBehaviour
 {
-    [SerializeField] CanvasGroup _gameOverCG;
+    [SerializeField] CanvasGroup _winScreenCG;
 
     void CanvasGroupSetState(CanvasGroup canvasGroup, bool state)
     {
@@ -19,8 +19,8 @@ public class Walls : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            AudioManager.Instance.StopMusic();
-            CanvasGroupSetState(_gameOverCG, true);
+            AudioManager.Instance.PlayWinSound();
+            CanvasGroupSetState(_winScreenCG, true);
             Time.timeScale = 0f;
         }
     }
